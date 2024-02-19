@@ -11,4 +11,5 @@ int main()
         printf("%i\n",x);
         x++;
     }
+    printf("Looped through 5 times\n");
 }
