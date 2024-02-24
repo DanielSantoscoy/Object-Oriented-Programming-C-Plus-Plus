@@ -9,8 +9,38 @@ using namespace std;
 * @param z : (int)
 * @return int
 */
+
 int sumOfThree(int x, int y, int z) {
     return x + y + z;
+}
+
+/** division
+* @brief returns x / y
+*
+* @param x : (double)
+* @param y : (double)
+* @return double
+*/
+
+double division(double x, double y) {
+    return x/y;
+}
+
+/** isGreatherThan
+* @brief returns whether x is greater than y
+*
+* @param x : (double)
+* @param y : (int)
+* @return true : x is greater than y
+* @return false : x is less than or equal to y
+*/
+
+bool isGreaterThan(double x, int y) {
+    if (x > y)
+        return true;
+    else if 
+        (x <= y)
+        return false;
 }
 
 int main()
@@ -21,7 +51,7 @@ int main()
     int z = 5;
 
     //call sumOfThree
-    int sum_out = sumOfThree(int x, int y, int z);
+    int sum_out = sumOfThree();
     //call myPrint
     myPrint("sum", sum_out);
 
