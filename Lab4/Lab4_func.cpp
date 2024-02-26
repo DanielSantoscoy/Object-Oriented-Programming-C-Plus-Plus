@@ -54,7 +54,19 @@ bool isGreaterThan(double x, int y) {
 * @return string
 */
 
-string func_type select()
+string func_type select(string)
+    string out = ""
+    if (func_type == "sum")
+        out = "The sum is "
+    else (func_type == "division")
+
+    if (func_type == "division")
+        out = "The quotient is "
+        else (func_type == "comparison")
+    
+    if (func_type == "comparison")
+        out = "The first value being greater than the second value is "
+        else (out = "Invalid function type\n")
 
 int main()
 {
