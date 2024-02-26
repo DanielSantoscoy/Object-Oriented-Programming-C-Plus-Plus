@@ -43,6 +43,19 @@ bool isGreaterThan(double x, int y) {
         return false;
 }
 
+/** select
+* @brief output the statements based on func_type
+* func_type : output
+* "sum" : "The sum is "
+* "division" : "The quotient is "
+* "comparison" : "The first value being greater than the second value is "
+* All other phrases: "Invalid function type\n"
+* @param func_type : (string)
+* @return string
+*/
+
+string func_type select()
+
 int main()
 {
     //Initialize 3 integer paramaters
