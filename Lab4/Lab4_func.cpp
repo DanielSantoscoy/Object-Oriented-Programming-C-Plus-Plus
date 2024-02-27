@@ -38,8 +38,7 @@ double division(double x, double y) {
 bool isGreaterThan(double x, int y) {
     if (x > y)
         return true;
-    else if 
-        (x <= y)
+    else 
         return false;
 }
 
@@ -54,19 +53,24 @@ bool isGreaterThan(double x, int y) {
 * @return string
 */
 
-string func_type select(string)
-    string out = ""
+string select(string func_type) {
+    string out = "";
     if (func_type == "sum")
-        out = "The sum is "
-    else (func_type == "division")
+        out = "The sum is ";
+    else if (func_type == "division")
+        out = "The quotient is ";
+    else if (func_type == "comparison")
+        out = "The first value being greater than the second value is ";
+    else 
+        out = "Invalid function type\n";
 
-    if (func_type == "division")
-        out = "The quotient is "
-        else (func_type == "comparison")
-    
-    if (func_type == "comparison")
-        out = "The first value being greater than the second value is "
-        else (out = "Invalid function type\n")
+    return out;
+}
+
+template <typename T>
+void myPrint(string func_type, T output) {
+    cout << select(func_type) << output << endl;
+}
 
 int main()
 {
@@ -76,7 +80,7 @@ int main()
     int z = 5;
 
     //call sumOfThree
-    int sum_out = sumOfThree();
+    int sum_out = sumOfThree(x, y, z);
     //call myPrint
     myPrint("sum", sum_out);
 
