@@ -46,3 +46,29 @@ void RPG::setSkills() {
 void RPG::printAction(string skill, RPG opponent) {
     printf("%s used %s on %s\n", name.c_str(), opponent.getName().c_str());
 }
+
+//Implement updateHealth()
+
+/**
+
+* @brief updates health into new_health
+*
+* @param new_health
+*/
+
+void RPG::updateHealth(int new_health){
+    health = new_health;
+}
+
+//Implement isAlive()
+
+/**
+* @brief returns whether health is greater than 0
+*
+* @return true
+* @return false
+*/
+
+const bool RPG::isAlive(){
+    return health > 0;
+}
