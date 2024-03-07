@@ -1,4 +1,8 @@
+#ifndef RPG_H
 #define RPG_H
+
+#include <string> 
+
 
 using namespace std;
 
@@ -32,13 +36,13 @@ class RPG {
         const int getDefense();
 
     private:
-        string name = "Wiz";
+        string name = "NPC";
         
         int health = 100;
        
-        int strength = 100;
+        int strength = 10;
       
-        int defense = 100;
+        int defense = 10;
         
 
         //Complete the rest
