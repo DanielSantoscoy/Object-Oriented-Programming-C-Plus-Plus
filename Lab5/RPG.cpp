@@ -118,3 +118,16 @@ void RPG::attack(RPG * opponent){
     //Update opponents health
     (*opponent).updateHealth(newHealth);
 }
+
+/**
+ * @brief Prompts the user to choose a skill and calls printAction() and attack()
+ * 
+ * @param opponent
+ */
+void RPG::useSkill(RPG * opponent){
+    // use a for loop to print out all of the players skill
+    // the code within your loop should be
+    for (i >= 0; i < SKILL_SIZE[2], i++){
+        printf("Skill %i: %s\n", i, skills[i].c_str());
+    }
+}
