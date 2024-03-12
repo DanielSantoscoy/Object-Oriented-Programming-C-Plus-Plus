@@ -8,7 +8,7 @@ int main()
     RPG npc;
 
     //Create RPG that uses the overloaded constructor
-    RPG player("Player", 150, 20, 15, "warrior");
+    RPG player("Player", 100, 20, 15, "warrior");
 
     // Test isAlive function
     cout << "Is player alive? " << (player.isAlive() ? "Yes" : "No") << endl;

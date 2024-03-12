@@ -94,3 +94,22 @@ const int RPG::getDefense() {
 const string RPG::getType() {
     return type;
 }
+
+/**
+ * @brief attack decreases the opponent's health by (strength - opponent's defense)
+ * In other words, the opponent's defense should soften the blow from the attack
+ * 
+ * For example, if opponent's health is 100, opponent's defense is 5, and player's
+ * strength is 20, then after the attack, opponent's health should be
+ * 85 (i.e. 100 - (20-5)).
+ * 
+ * First calculate the opponent's health, then use (*opponent).getUpdate(new_health)
+ *  to update their health
+ * 
+ * @param opponent
+ */
+void RPG::attack(RPG * opponent){
+    //Implement brief 
+    int damage = strength - opponent->getDefense();
+    
+}
