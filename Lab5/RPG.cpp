@@ -111,5 +111,10 @@ const string RPG::getType() {
 void RPG::attack(RPG * opponent){
     //Implement brief 
     int damage = strength - opponent->getDefense();
-    
+
+    //Update opponent's health after attack
+    int newHealth = opponent->getHealth() - damage;
+
+    //Update opponents health
+    (*opponent).updateHealth(newHealth);
 }
