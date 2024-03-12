@@ -5,22 +5,24 @@ using namespace std;
 RPG::RPG()
 {
     //Assign private variables
-   string name = "NPC";
-   int health = 100;
-   int strength = 10;
-   int defense = 10;
-   string type = "warrior";
-   string skills[0] = "slash";
-   string skills[1] = "parry";
+    name = "NPC";
+    health = 100;
+    strength = 10;
+    defense = 10;
+    type = "warrior";
+    skills[0] = "slash";
+    skills[1] = "parry";
 };
 
 RPG::RPG(string name, int health, int strength, int defense, string type){
-    //Call functions from RPG.h
+   // Assign private variables with parameter values
+    this->name = name;
+    this->health = health;
+    this->strength = strength;
+    this->defense = defense;
+    this->type = type;
+    // Call setSkills() to initialize skills based on type
     setSkills();
-    getName();
-    getHealth();
-    getStrength();
-    getDefense();
 };
 
 /**
@@ -44,7 +46,7 @@ void RPG::setSkills() {
 };
 
 void RPG::printAction(string skill, RPG opponent) {
-    printf("%s used %s on %s\n", name.c_str(), opponent.getName().c_str());
+    printf("%s used %s on %s\n", name.c_str(), skill.c_str(), opponent.getName().c_str());
 }
 
 //Implement updateHealth()
@@ -69,6 +71,26 @@ void RPG::updateHealth(int new_health){
 * @return false
 */
 
-const bool RPG::isAlive(){
+ bool RPG::isAlive() const {
     return health > 0;
+}
+
+const string RPG::getName() {
+    return name;
+}
+
+const int RPG::getHealth() {
+return health;
+}
+
+const int RPG::getStrength() {
+    return strength;
+}
+
+const int RPG::getDefense() {
+    return defense;
+}
+
+const string RPG::getType() {
+    return type;
 }

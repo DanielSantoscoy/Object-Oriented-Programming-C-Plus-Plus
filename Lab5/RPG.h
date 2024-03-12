@@ -19,13 +19,13 @@ class RPG {
 
         void printAction(string name, RPG);
 
-        void updateHealth(int health);
+        void updateHealth(int new_health);
 
         void attack(RPG *);
 
         void useSkill(RPG *);
 
-        const bool isAlive();
+        bool isAlive() const;
 
         const string getName();
 
@@ -35,14 +35,17 @@ class RPG {
 
         const int getDefense();
 
+        const string getType();
+
+
     private:
-        string name = "NPC";
+        string name;
         
-        int health = 100;
+        int health;
        
-        int strength = 10;
+        int strength;
       
-        int defense = 10;
+        int defense;
         
 
         //Complete the rest
