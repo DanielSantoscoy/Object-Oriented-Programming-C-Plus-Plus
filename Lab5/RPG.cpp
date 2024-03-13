@@ -136,5 +136,22 @@ void RPG::useSkill(RPG * opponent){
         printf("Skill %i: %s\n", i, skills[i].c_str());
     }
     // Create an int called choosen_skill_index
-    
+    int choosen_skill_index;
+
+    // Use a print to output "Choose a skill to use: Enter 0 or 1\n on the terminal."
+    printf("Choose a skill to use: Enter 0 or 1\n on the terminal.");
+    // get user input and assign it to choose_skill_index
+    // (e.g. cin >> )
+    cin >> choosen_skill_index;
+
+    // assigns the choosen_skill into a string called choosen_skill
+    // no modification needed here 
+    string choosen_skill = skills[choosen_skill_index];
+
+    // call printAction(string, RPG) and use choosen_skill and (*opponent)
+    // as the parameters
+    printAction(choosen_skill, (*opponent));
+
+    // call attack on opponent
+    opponent->attack(this);
 }
