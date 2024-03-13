@@ -126,8 +126,15 @@ void RPG::attack(RPG * opponent){
  */
 void RPG::useSkill(RPG * opponent){
     // use a for loop to print out all of the players skill
-    // the code within your loop should be
-    for (i >= 0; i < SKILL_SIZE[2], i++){
+    // the code within your loop should be:
+    // printf("Skill %i: %s\n", i, skills[i].c_str());
+    // where i is the index given your for loop
+    // Recall that SKILL_SIZE is set to 2 within RPG.h
+    // The values of i should be 0 <= i < SKILL_SIZE.
+    int i = 0;
+    for (i >= 0; i < SKILL_SIZE, i++;){
         printf("Skill %i: %s\n", i, skills[i].c_str());
     }
+    // Create an int called choosen_skill_index
+    
 }
