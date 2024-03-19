@@ -37,7 +37,10 @@ int main()
  */
 void displayStats(RPG p1, RPG p2) {
     //Implement the brief
-    printf("Wiz health: " p1->gethealth())
+    // Output player 1 health
+    printf("Wiz health: ", p1.getHealth());
+    // Output player 2 health
+    printf("NPC health: ", p2.getHealth());
 }
 
 /**
