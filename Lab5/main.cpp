@@ -4,8 +4,7 @@ using namespace std;
 
 // Declare gameLoop() and displayEnd() functions
 void gameLoop(RPG * p1, RPG * p2);
-void displayEnd(const RPG& p1, const RPG& p2);
-
+void displayEnd(RPG p1, RPG p2);
 
 /**
  * @brief Prints out both player's name and their health.
@@ -15,11 +14,16 @@ void displayEnd(const RPG& p1, const RPG& p2);
  * @param p2
  */
 void displayStats(RPG p1, RPG p2) {
+
     //Implement the brief
+
     // Output player 1 health
-    printf("Wiz health: ", p1.getHealth());
+
+    printf("Wiz health: %d ", p1.getHealth());
+
     // Output player 2 health
-    printf("NPC health: ", p2.getHealth());
+
+    printf("NPC HEALTH: %d ", p2.getHealth());
 }
 
 /**
@@ -33,11 +37,13 @@ void displayStats(RPG p1, RPG p2) {
  * @param p2
  */
 void displayEnd(RPG p1, RPG p2) {
+
     //Implement brief
+
     if (p1.isAlive()) {
         printf("Wiz defeated NPC! Good game!\n");
     } else {
-        printf("Player 2 wins! Good game!\n");
+        printf("NPC wins! Good game!\n");
     }
 }
 
@@ -61,46 +67,50 @@ example output
 * @param p2
 */
 void gameLoop(RPG * p1, RPG * p2) {
+
 //Implement brief
+
 // Create while loop to see if both players are alive
+
 while (p1->isAlive() && p2->isAlive()) {
+    // Display stats
+    displayStats(*p1,*p2);
     // Prints the name of player one to say that it is their turn
-    printf("%s is alive, it is their turn:\n", p1->getName());
+    // printf("%s is alive, it is their turn:\n", p1->getName());
     // Call (*p1).useSkill(p2)
     (*p1).useSkill(p2);
     // Print "---------------------------------------\n"
     printf("---------------------------------------\n");
+    // Display stats after attack
+    displayStats(*p1,*p2);
     // Check if p2 is alive before proceeding, using isAlive() function
     if (p2->isAlive()) {
         // If p2 is alive, output that it is their turn
-        printf("%s is alive, it is their turn:\n", p2->getName());
+        // printf("%s is alive, it is their turn:\n", p2->getName());
         // call (*p2).useSkill(p1)
         (*p2).useSkill(p1);
         // Print "---------------------------------------\n"
         printf("---------------------------------------\n");
+        // Display stats after attack
+        displayStats(*p1,*p2);
     }
 }
+
 }
 
 int main() {
-    //Create RPG that uses the default constructor
-    RPG p2;
-
     //Create RPG that uses the overloaded constructor
-    RPG p1("Wiz", 70, 45, 15, "mage");
 
-    // Test isAlive function
-    cout << "Is p1 alive? " << (p1.isAlive() ? "Yes" : "No") << endl;
+    RPG p1 = RPG("Wiz", 70, 45, 15, "mage");
+    
+    //Create RPG that uses the default constructor   
+
+    RPG p2 = RPG();
 
     // Test updateHealth function
-    int newHealth = 75;
-    p1.updateHealth(newHealth);
-    cout << "Updated p1 health: " << p1.getHealth() << endl;
-    cout << "Is p1 alive now? " << (p1.isAlive() ? "Yes" : "No") << endl;
+    // cout << "Wiz health: " << p1.getHealth() << "  NPC health: " << p2.getHealth() << endl;
+    // cout << "Wiz's turn " << endl;
 
-    // Create variables for players
-    RPG p1 = RPG("Wiz", 70, 45, 15, "mage");
-    RPG p2 = RPG();
     // implement gameLoop(), displayEnd(), and displayStats()
     gameLoop(&p1, &p2);
     displayEnd(p1, p2);
