@@ -2,31 +2,10 @@
 #include "RPG.h"
 using namespace std;
 
-int main()
-{
-    //Create RPG that uses the default constructor
-    RPG p2;
+// Declare gameLoop() and displayEnd() functions
+void gameLoop(RPG * p1, RPG * p2);
+void displayEnd(const RPG& p1, const RPG& p2);
 
-    //Create RPG that uses the overloaded constructor
-    RPG p1("Wiz", 70, 45, 15, "mage");
-
-    // Test isAlive function
-    cout << "Is p1 alive? " << (p1.isAlive() ? "Yes" : "No") << endl;
-
-    // Test updateHealth function
-    int newHealth = 75;
-    p1.updateHealth(newHealth);
-    cout << "Updated p1 health: " << p1.getHealth() << endl;
-    cout << "Is p1 alive now? " << (p1.isAlive() ? "Yes" : "No") << endl;
-
-    // Create variables for players
-    RPG p1 = RPG("Wiz", 70, 45, 15, "mage");
-    RPG p2 = RPG();
-    // implement gameLoop(), displayEnd(), and displayStats()
-    gameLoop(&p1, &p2);
-    displayEnd(p1, p2);
-    return 0;
-}
 
 /**
  * @brief Prints out both player's name and their health.
@@ -61,6 +40,7 @@ void displayEnd(RPG p1, RPG p2) {
         printf("Player 2 wins! Good game!\n");
     }
 }
+
 /***
 * @brief uses a while loop to check whether both players are alive.
 * If so, it calls displayStats((*player1), (*player2))
@@ -80,7 +60,7 @@ example output
 * @param p1
 * @param p2
 */
-void gameLoop(RPG * p1, RPG * p2){
+void gameLoop(RPG * p1, RPG * p2) {
 //Implement brief
 // Create while loop to see if both players are alive
 while (p1->isAlive() && p2->isAlive()) {
@@ -100,5 +80,31 @@ while (p1->isAlive() && p2->isAlive()) {
         printf("---------------------------------------\n");
     }
 }
-
 }
+
+int main() {
+    //Create RPG that uses the default constructor
+    RPG p2;
+
+    //Create RPG that uses the overloaded constructor
+    RPG p1("Wiz", 70, 45, 15, "mage");
+
+    // Test isAlive function
+    cout << "Is p1 alive? " << (p1.isAlive() ? "Yes" : "No") << endl;
+
+    // Test updateHealth function
+    int newHealth = 75;
+    p1.updateHealth(newHealth);
+    cout << "Updated p1 health: " << p1.getHealth() << endl;
+    cout << "Is p1 alive now? " << (p1.isAlive() ? "Yes" : "No") << endl;
+
+    // Create variables for players
+    RPG p1 = RPG("Wiz", 70, 45, 15, "mage");
+    RPG p2 = RPG();
+    // implement gameLoop(), displayEnd(), and displayStats()
+    gameLoop(&p1, &p2);
+    displayEnd(p1, p2);
+
+    return 0;
+}
+
