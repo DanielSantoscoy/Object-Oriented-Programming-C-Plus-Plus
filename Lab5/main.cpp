@@ -32,8 +32,8 @@ int main()
  * @brief Prints out both player's name and their health.
  * Example Output for names Wiz and NPC
  * 
- * @param player1
- * @param player2
+ * @param p1
+ * @param p2
  */
 void displayStats(RPG p1, RPG p2) {
     //Implement the brief
@@ -50,8 +50,8 @@ void displayStats(RPG p1, RPG p2) {
  * Example output:
  * Wiz defeated NPC! Good game!\n
  * 
- * @param player 1
- * @param player 2
+ * @param p1
+ * @param p2
  */
 void displayEnd(RPG p1, RPG p2) {
     //Implement brief
@@ -67,17 +67,38 @@ void displayEnd(RPG p1, RPG p2) {
 * Inside the while loop it:
 * Then prints the name of player one to say that it is their turn
 * Then call (*player1).useSkill(player2)
-Then prints "---------------------------------------\n"
-Repeat the process for player 2 acting on player 1 inside the same while loop
+* Then prints "---------------------------------------\n"
+*
+* Repeat the process for player 2 acting on player 1 inside the same while loop
 * Then prints the name of player two to say that it is their turn
-Then call (*player2).useSkill(player1)
-* Then prints
--\n"
+* Then call (*player2).useSkill(player1)
+* Then prints "---------------------------------------\n"
+*
 Refer to the Role Playing Game Part Two instructions for the
-example outut
-* @param player1
-* @param player2
+example output
+*
+* @param p1
+* @param p2
 */
-void gameLoop(RPG * player1, RPG * player2){
+void gameLoop(RPG * p1, RPG * p2){
 //Implement brief
+// Create while loop to see if both players are alive
+while (p1->isAlive() && p2->isAlive()) {
+    // Prints the name of player one to say that it is their turn
+    printf("%s is alive, it is their turn:\n", p1->getName());
+    // Call (*p1).useSkill(p2)
+    (*p1).useSkill(p2);
+    // Print "---------------------------------------\n"
+    printf("---------------------------------------\n");
+    // Check if p2 is alive before proceeding, using isAlive() function
+    if (p2->isAlive()) {
+        // If p2 is alive, output that it is their turn
+        printf("%s is alive, it is their turn:\n", p2->getName());
+        // call (*p2).useSkill(p1)
+        (*p2).useSkill(p1);
+    // Print "---------------------------------------\n"
+    printf("---------------------------------------\n");
+    }
+}
+
 }
