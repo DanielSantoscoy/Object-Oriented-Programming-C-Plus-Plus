@@ -96,8 +96,8 @@ while (p1->isAlive() && p2->isAlive()) {
         printf("%s is alive, it is their turn:\n", p2->getName());
         // call (*p2).useSkill(p1)
         (*p2).useSkill(p1);
-    // Print "---------------------------------------\n"
-    printf("---------------------------------------\n");
+        // Print "---------------------------------------\n"
+        printf("---------------------------------------\n");
     }
 }
 
