@@ -72,34 +72,31 @@ void gameLoop(RPG * p1, RPG * p2) {
 
 // Create while loop to see if both players are alive
 
-while (p1->isAlive() && p2->isAlive()) {
-    // Display stats
-    displayStats(*p1,*p2);
+    while (p1->isAlive() && p2->isAlive()) {
+        // Display stats
+        displayStats(*p1,*p2);
 
-    // Prints the name of player one to say that it is their turn
-    printf("Wiz's turn\n\n");
-    // Call (*p1).useSkill(p2)
-    (*p1).useSkill(p2);
+        // Prints the name of player one to say that it is their turn
+        printf("Wiz's turn\n\n");
+        // Call (*p1).useSkill(p2)
+        (*p1).useSkill(p2);
 
-    // Print "---------------------------------------\n"
-    printf("---------------------------------------\n");
-
-    // Display stats after attack
-    displayStats(*p1,*p2);
-
-    // Check if p2 is alive before proceeding, using isAlive() function
-    if (p2->isAlive()) {
-        
-        // If p2 is alive, output that it is their turn
-        printf("NPC's turn\n\n");
-        // call (*p2).useSkill(p1)
-        (*p2).useSkill(p1);
         // Print "---------------------------------------\n"
         printf("---------------------------------------\n");
+
         // Display stats after attack
         displayStats(*p1,*p2);
+
+        // Check if p2 is alive before proceeding, using isAlive() function
+        if (p2->isAlive()) {       
+            // If p2 is alive, output that it is their turn
+            printf("NPC's turn\n\n");
+            // call (*p2).useSkill(p1)
+            (*p2).useSkill(p1);
+            // Print "---------------------------------------\n"
+            printf("---------------------------------------\n");
+        }
     }
-}
 
 }
 

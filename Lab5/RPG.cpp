@@ -141,7 +141,7 @@ void RPG::useSkill(RPG * opponent){
     // Recall that SKILL_SIZE is set to 2 within RPG.h
     // The values of i should be 0 <= i < SKILL_SIZE.
     int i = 0;
-    for (i >= 0; i < SKILL_SIZE, i++;){
+    for (i >= 0; i < SKILL_SIZE; i++){
         printf("Skill %i: %s\n", i, skills[i].c_str());
     }
     // Create an int called choosen_skill_index
@@ -163,4 +163,5 @@ void RPG::useSkill(RPG * opponent){
 
     // call attack on opponent
     attack(opponent);
+    
 }
