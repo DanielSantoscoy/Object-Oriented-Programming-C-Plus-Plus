@@ -60,6 +60,11 @@ void RPG::printAction(string skill, RPG opponent) {
 
 void RPG::updateHealth(int new_health){
     health = new_health;
+    // dont let health go to negatives
+    if (health < 0) {
+        health = 0;
+    }
+    
 }
 
 //Implement isAlive()
@@ -157,5 +162,5 @@ void RPG::useSkill(RPG * opponent){
     printAction(choosen_skill, (*opponent));
 
     // call attack on opponent
-    opponent->attack(this);
+    attack(opponent);
 }

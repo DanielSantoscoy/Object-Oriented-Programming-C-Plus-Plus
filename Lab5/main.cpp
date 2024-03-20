@@ -23,7 +23,7 @@ void displayStats(RPG p1, RPG p2) {
 
     // Output player 2 health
 
-    printf("NPC HEALTH: %d ", p2.getHealth());
+    printf("  NPC health: %d\n ", p2.getHealth());
 }
 
 /**
@@ -75,18 +75,23 @@ void gameLoop(RPG * p1, RPG * p2) {
 while (p1->isAlive() && p2->isAlive()) {
     // Display stats
     displayStats(*p1,*p2);
+
     // Prints the name of player one to say that it is their turn
-    // printf("%s is alive, it is their turn:\n", p1->getName());
+    printf("Wiz's turn\n\n");
     // Call (*p1).useSkill(p2)
     (*p1).useSkill(p2);
+
     // Print "---------------------------------------\n"
     printf("---------------------------------------\n");
+
     // Display stats after attack
     displayStats(*p1,*p2);
+
     // Check if p2 is alive before proceeding, using isAlive() function
     if (p2->isAlive()) {
+        
         // If p2 is alive, output that it is their turn
-        // printf("%s is alive, it is their turn:\n", p2->getName());
+        printf("NPC's turn\n\n");
         // call (*p2).useSkill(p1)
         (*p2).useSkill(p1);
         // Print "---------------------------------------\n"
