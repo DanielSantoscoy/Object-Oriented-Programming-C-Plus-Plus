@@ -112,11 +112,15 @@ void RPG::attack(RPG * opponent){
     //Implement brief 
     int damage = strength - opponent->getDefense();
 
-    //Update opponent's health after attack
-    int newHealth = opponent->getHealth() - damage;
+    // if/else statement to prevent damage bug
+    if (damage > 0) {
+        int newHealth = opponent->getHealth() - damage;
+        //Update opponents health
+        (*opponent).updateHealth(newHealth);
+    } else {
+        opponent->getHealth() - 0;
+    }
 
-    //Update opponents health
-    (*opponent).updateHealth(newHealth);
 }
 
 /**

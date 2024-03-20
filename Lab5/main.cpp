@@ -107,7 +107,6 @@ int main() {
 
     RPG p2 = RPG();
 
-    // Test updateHealth function
     // cout << "Wiz health: " << p1.getHealth() << "  NPC health: " << p2.getHealth() << endl;
     // cout << "Wiz's turn " << endl;
 
@@ -117,4 +116,6 @@ int main() {
 
     return 0;
 }
+
+
 
