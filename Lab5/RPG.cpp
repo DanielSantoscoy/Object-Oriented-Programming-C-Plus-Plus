@@ -151,10 +151,18 @@ void RPG::useSkill(RPG * opponent){
     int choosen_skill_index;
 
     // Use a print to output "Choose a skill to use: Enter 0 or 1\n"
-    printf("Choose a skill to use: Enter 0 or 1\n");
+    printf("Choose a skill to use: Enter 0 or 1\n");    
+
     // get user input and assign it to choose_skill_index
     // (e.g. cin >> )
     cin >> choosen_skill_index;
+
+    // if/else statement to print error statement if user enters number besides 0 or 1
+    if (choosen_skill_index != 0 && choosen_skill_index != 1)
+    {
+        printf("Invalid number. Please enter a 0 or 1\n");
+        cin >> choosen_skill_index;
+    }
 
     // assigns the choosen_skill into a string called choosen_skill
     // no modification needed here 
