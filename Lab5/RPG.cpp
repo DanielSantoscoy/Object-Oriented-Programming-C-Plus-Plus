@@ -1,4 +1,5 @@
 #include<iostream>
+#include <cstdlib>
 #include "RPG.h"
 using namespace std;
 
@@ -19,7 +20,7 @@ RPG::RPG(string name, int health, int strength, int defense, string type){
     this->name = name;
     this->health = health;
     this->strength = strength;
-    this->defense = defense;
+    this->defense = abs(defense);
     this->type = type;
     // Call setSkills() to initialize skills based on type
     setSkills();
