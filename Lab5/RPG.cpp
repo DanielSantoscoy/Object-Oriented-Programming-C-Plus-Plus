@@ -157,7 +157,7 @@ void RPG::useSkill(RPG * opponent){
     // (e.g. cin >> )
     cin >> choosen_skill_index;
 
-    // if/else statement to print error statement if user enters number besides 0 or 1
+    // if statement to print error statement if user enters number besides 0 or 1
     if (choosen_skill_index != 0 && choosen_skill_index != 1)
     {
         printf("Invalid number. Please enter a 0 or 1\n");
