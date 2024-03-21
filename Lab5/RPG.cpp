@@ -7,7 +7,7 @@ RPG::RPG()
     //Assign private variables
     name = "NPC";
     health = 100;
-    strength = 10;
+    strength = 30;
     defense = 10;
     type = "warrior";
     skills[0] = "slash";
@@ -117,13 +117,16 @@ void RPG::attack(RPG * opponent){
     //Implement brief 
     int damage = strength - opponent->getDefense();
 
+    int newHealth = 0;
+
     // if/else statement to prevent damage bug
     if (damage > 0) {
         int newHealth = opponent->getHealth() - damage;
         //Update opponents health
         (*opponent).updateHealth(newHealth);
     } else {
-        opponent->getHealth() - 0;
+        int newHealth = opponent->getHealth() - 0;
+        opponent->updateHealth(newHealth);
     }
 
 }
