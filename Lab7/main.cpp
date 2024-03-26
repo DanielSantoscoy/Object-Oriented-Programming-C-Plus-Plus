@@ -3,11 +3,10 @@
 using namespace std;
 
 /**
- * @brief writes sample_size number of integers
- * Example output: if n = 3 and arr = [1,2,3]
- * 1
- * 2
- * 3
+ * @brief writes sample_size number of strings
+ * Example output: if n = 2 and arr = ["cat","dog"]
+ * cat
+ * dog
  * 
  * @param filename
  * @param arr
@@ -15,13 +14,11 @@ using namespace std;
  * 
  */
 
-const int sample_size = 10;
-
-void writeToFile(string filename, int * arr, int sample_size) {
+void writeToFile(string filename, string * arr, string sample_size) {
     ofstream file(filename);
-    int val;
+    string val;
 
-    for (int i = 0; i < sample_size; i++)
+    for (string i = 0; i < sample_size; i)
     {
         file << arr[i];
         file << "\n";
@@ -30,9 +27,23 @@ void writeToFile(string filename, int * arr, int sample_size) {
     printf("Wrote to %s\n", filename.c_str());
 }
 
-void writeTofile(char filename, char arr, int sample_size) {
+/**
+ * @brief writes sample_size number of char
+ * Example output: if n = 2 and arr = ["c","d"]
+ * c
+ * d
+ * 
+ * @param filename
+ * @param arr
+ * @param sample_size
+ */
+
+void writeTofile(char filename, char arr, char sample_size) {
     ofstream file(filename);
+    char val;
 }
+
+const int SAMPLE_SIZE = 10;
 
 int main() {
     const int SAMPLE_SIZE = 10;
