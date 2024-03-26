@@ -2,10 +2,36 @@
 #include<fstream>
 using namespace std;
 
-const int SAMPLE_SIZE = 10;
+/**
+ * @brief writes sample_size number of integers
+ * Example output: if n = 3 and arr = [1,2,3]
+ * 1
+ * 2
+ * 3
+ * 
+ * @param filename
+ * @param arr
+ * @param sample_size
+ * 
+ */
 
-void writeToFile(const string ) {
-    ofstream outputFile(main);
+const int sample_size = 10;
+
+void writeToFile(string filename, int * arr, int sample_size) {
+    ofstream file(filename);
+    int val;
+
+    for (int i = 0; i < sample_size; i++)
+    {
+        file << arr[i];
+        file << "\n";
+    }
+    file.close();
+    printf("Wrote to %s\n", filename.c_str());
+}
+
+void writeTofile(char filename, char arr, int sample_size) {
+    ofstream file(filename);
 }
 
 int main() {
