@@ -14,11 +14,11 @@ using namespace std;
  * 
  */
 
-void writeToFile(string filename, string * arr, string sample_size) {
+void writeToFile(string &filename, string * arr, int sample_size) {
     ofstream file(filename);
     string val;
 
-    for (string i = 0; i < sample_size; i)
+    for (int i = 0; i < sample_size; i++)
     {
         file << arr[i];
         file << "\n";
@@ -38,9 +38,25 @@ void writeToFile(string filename, string * arr, string sample_size) {
  * @param sample_size
  */
 
-void writeTofile(char filename, char arr, char sample_size) {
+void writeToFile(char filename, char arr, char sample_size) {
     ofstream file(filename);
     char val;
+
+    for (char i = 0; i < sample_size; i++)
+    {
+        file << arr[i];
+        file << "\n";
+    }
+    
+}
+
+/**
+ * @brief reads the content of any file
+ * 
+ * @param filename
+ */
+void readFile(string filename) {
+
 }
 
 const int SAMPLE_SIZE = 10;
