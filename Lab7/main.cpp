@@ -38,7 +38,7 @@ void writeToFile(string &filename, string * arr, int sample_size) {
  * @param sample_size
  */
 
-void writeToFile(char filename, char arr, char sample_size) {
+void writeToFile(string &filename, char * arr, int sample_size) {
     ofstream file(filename);
     char val;
 
@@ -97,7 +97,7 @@ int main() {
 
     // CALL readFile() on all 3 generated files.
 
-    readFile("array_str.csv", "array_char", )
+    readFile("array_str.csv", "array_char.csv", SAMPLE_SIZE)
 
     return 0;
 }
