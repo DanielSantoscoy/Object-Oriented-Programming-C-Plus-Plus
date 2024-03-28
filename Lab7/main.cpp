@@ -69,7 +69,19 @@ void readFile(string filename) {
     }
 }
 
-const int SAMPLE_SIZE = 10;
+void writeToFile(string &filename, int arr[], int sample_size) {
+    ofstream file(filename);
+    if (file.is_open()) {
+        for (int i = 0; i < sample_size; i++) {
+            file << arr[i] << "\n";
+        }
+        file.close();
+        cout << "Wrote to " << filename << endl;
+    } else {
+        cerr << "Unable to open file: " << filename << endl;
+    }
+}
+
 
 int main() {
     const int SAMPLE_SIZE = 10;
@@ -110,7 +122,6 @@ int main() {
     readFile("array_int.csv");
     readFile("array_str.csv");
     readFile("array_char.csv");
-
 
     return 0;
 }
