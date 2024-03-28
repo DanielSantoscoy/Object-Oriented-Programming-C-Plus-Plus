@@ -42,7 +42,7 @@ void writeToFile(string &filename, char * arr, int sample_size) {
     ofstream file(filename);
     char val;
 
-    for (char i = 0; i < sample_size; i++)
+    for (int i = 0; i < sample_size; i++)
     {
         file << arr[i];
         file << "\n";
@@ -55,8 +55,18 @@ void writeToFile(string &filename, char * arr, int sample_size) {
  * 
  * @param filename
  */
-void readFile(string filename) {
 
+void readFile(string filename) {
+    ifstream file(filename);
+    if (file.is_open()) {  
+        string line;  
+        while (getline(file, line)) { 
+            cout << line << endl;  
+        }
+        file.close(); 
+    } else {
+        cerr << "Unable to open file: " << filename << endl;
+    }
 }
 
 const int SAMPLE_SIZE = 10;
@@ -78,26 +88,29 @@ int main() {
     // CREATE a string variable as the filename and assign
     // it the value "array_str.csv"
 
-    string main = "array_str.csv";
+    string str_file = "array_str.csv";
 
     // CALL writeToFile using the string variable above, array_str, and SAMPLE_SIZE as
     // parameters
 
-    writeToFile("array_str.csv", array_str, SAMPLE_SIZE);
+    writeToFile(str_file, array_str, SAMPLE_SIZE);
 
     // CREATE a string variable as the filename and assign
     // it the value "array_char.csv"
 
-    string main = "array_char.csv";
+    string char_file = "array_char.csv";
 
     // CALL writeToFile using the string variable above, array_char, and SAMPLE_SIZE as
     // parameters
 
-    writeToFile("array_char.csv", array_char, SAMPLE_SIZE);
+    writeToFile(char_file, array_char, SAMPLE_SIZE);
 
     // CALL readFile() on all 3 generated files.
 
-    readFile("array_str.csv", "array_char.csv", SAMPLE_SIZE)
+    readFile("array_int.csv");
+    readFile("array_str.csv");
+    readFile("array_char.csv");
+
 
     return 0;
 }
