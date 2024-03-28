@@ -17,6 +17,19 @@ void printMemArr(const int * arr, int size) { // void printMemArr(int arr[], int
     
 }
 
+/**
+ * @brief increments all of the elements in arr by 10
+ * 
+ * @param arr - array of integers 
+ * @param size - the number of elements in array
+ */
+void incArrBy10(int * arr, int size) { // void incArrBy10(int arr[], int size )
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] += 10;
+    }
+    
+}
 
 
 
