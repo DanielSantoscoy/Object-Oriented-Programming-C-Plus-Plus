@@ -47,5 +47,36 @@ int main()
 
     printf("Before increment------------\n");
     // call printMemVec(...) on vec
+    printMemVec(v);
+
+
+    // call incBy10(...) on vec
+    incVecBy10(v);
+
+
+    printf("After increment------------\n");
+    // call printMemVec(...) on vec again to view the changes
+    printMemVec(v);
+
+
+    // remove the last element of vec
+    v.pop_back();
+
+
+
+    printf("After Pop------------\n");
+    // call printMemVec(...) on vec again to view the changes
+    printMemVec(v);
+
+
+    // append 101 and 102 at the end of vec
+    v.push_back(101);
+    v.push_back(102);
+
+
+    printf("After Push------------\n");
+    // call printMemVec(...) on vec again to view the changes
+    printMemVec(v);
+
     return 0;
 }
