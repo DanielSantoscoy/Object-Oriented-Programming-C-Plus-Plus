@@ -17,8 +17,35 @@ void printMemVec(std::vector<int> & v){
     
 }
 
+/**
+ * @brief increments all of the elements in v by 10
+ * 
+ * @param v - address to a vector of integers
+ */
+void incVecBy10(std::vector<int> v) {
+    for (size_t i = 0; i < v.size(); i++)
+    {
+        v[i] += 10;
+    }
+    
+}
+
 int main()
 {
+    // create a constant integer called SIZE that is of value 5
+    const int SIZE = 5;
+
+    // create a vector of integers called vec that can hold up to 5 elements
+    vector<int> v(SIZE);
+
+    // use a for loop to populate vec with the values 100 to 104
+    for (size_t i = 0; i < sizeof(SIZE); i++)
+    {
+        v[i] >= 100 && v[i] <= 104;
+    }
     
+
+    printf("Before increment------------\n");
+    // call printMemVec(...) on vec
     return 0;
 }
