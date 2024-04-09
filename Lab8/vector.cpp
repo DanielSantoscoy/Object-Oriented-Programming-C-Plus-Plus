@@ -7,12 +7,11 @@ using namespace std;
  * 
  * @param v - vector of integers
  */
-void printMemVec(std::vector<int> & v){
+void printMemVec(vector<int> & v){
     cout << "Each integer is worth " << sizeof(int) << " bytes\n";
-    int i = 0;
-    for (size_t i = 0; i < v.size(); i++);
+    for (size_t i = 0; i < v.size(); i++)
     {
-        cout << "Value is " << v[i] << " at Memory Location " << &v[i];
+        cout << "Value is " << v[i] << " at Memory Location " << &v[i] << "\n";
     }
     
 }
@@ -22,7 +21,7 @@ void printMemVec(std::vector<int> & v){
  * 
  * @param v - address to a vector of integers
  */
-void incVecBy10(std::vector<int> v) {
+void incVecBy10(vector<int> &v) {
     for (size_t i = 0; i < v.size(); i++)
     {
         v[i] += 10;
@@ -39,9 +38,9 @@ int main()
     vector<int> v(SIZE);
 
     // use a for loop to populate vec with the values 100 to 104
-    for (size_t i = 0; i < sizeof(SIZE); i++)
+    for (size_t i = 0; i < SIZE; i++)
     {
-        v[i] >= 100 && v[i] <= 104;
+        v[i] = 100 + i;
     }
     
 
