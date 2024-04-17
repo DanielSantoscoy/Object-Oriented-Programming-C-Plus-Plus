@@ -57,11 +57,61 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
 
     // return a recursive call to binarySearch(...)
 
-    
+
+}
+
+/**
+ * @brief updates v to contain the values from filename (leave as is)
+ * 
+ * It is expected that the files contain values ranging from one to 
+ * one hundred million in ascending order (no duplicates).
+ * 
+ * @param filename : string
+ * @param v : vector
+ */
+void vecGen(string filename, vector<int> & v) {
+    ifstream file(filename);
+    int num;
+    v.clear();
+    while(file.is_open() && file >> num) {
+        v.push_back(num);
+    }
+    file.close();
 }
 
 int main()
 {
+    // populate v with 1000 sorted numbers (leave as is)
+    vector<int> v;
+    vecGen("10000_numbers.csv", v);
+
+    // test elements to search for (leave as is)
+    vector<int> elem_to_find;
+    vecGen("test_elem.csv", elem_to_find);
+
+
+    // reads through all 10 of the test_elem values and calls iterative search
+    // and records how long each search took (leave as is)
+    for (int i = 0; i < elem_to_find.size(); i++)
+    {
+        // gets the elem to search for
+        int elem = elem_to_find[i];
+
+        // stopwatches the time 
+        clock_t start = clock();                        // start time
+        int index_if_found = iterativeSearch(v,elem);   // call search
+        clock_t end = clock();                          // end time
+
+        // calculates the total time it took in seconds
+        double elapsed_time_in_sec = (double(end - start)/CLOCKS_PER_SEC);
+
+        // prints the index and how long it took to find it
+        cout << index_if_found << ": " << elapsed_time_in_sec << endl;      
+    }
     
+
+    // repeat the for loop above so that it records the time 
+    // it takes for binarySearch to do the same operation
+   
     return 0;
 }
