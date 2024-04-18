@@ -76,10 +76,10 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
         }
 
     // return a recursive call to binarySearch(...)
-    
+    }
     // if elem isn't found
     return -1;
-    }
+    
 }
 
 
