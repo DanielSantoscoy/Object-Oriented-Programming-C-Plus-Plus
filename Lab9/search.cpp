@@ -104,7 +104,7 @@ void vecGen(string filename, vector<int> & v) {
 
 int main()
 {
-    // populate v with 1000 sorted numbers (leave as is)
+    // populate v with 10000 sorted numbers (leave as is)
     vector<int> v;
     vecGen("10000_numbers.csv", v);
 
@@ -135,6 +135,21 @@ int main()
 
     // repeat the for loop above so that it records the time 
     // it takes for binarySearch to do the same operation
-   
+   for (int i = 0; i < elem_to_find.size(); i++)
+    {
+        // gets the elem to search for
+        int elem = elem_to_find[i];
+
+        // stopwatches the time 
+        clock_t start = clock();                        // start time
+        int index_if_found = iterativeSearch(v,elem);   // call search
+        clock_t end = clock();                          // end time
+
+        // calculates the total time it took in seconds
+        double elapsed_time_in_sec = (double(end - start)/CLOCKS_PER_SEC);
+
+        // prints the index and how long it took to find it
+        cout << index_if_found << ": " << elapsed_time_in_sec << endl;      
+    }
     return 0;
 }
