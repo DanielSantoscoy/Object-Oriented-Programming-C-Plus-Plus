@@ -135,9 +135,9 @@ int main()
         int elem = elem_to_find[i];
 
         // stopwatches the time 
-        auto start = std::chrono::high_resolution_clock::now();         // start time
+        auto start = chrono::high_resolution_clock::now();         // start time
         int index_if_found = binarySearch(v, 0, v.size() -1, elem);     // call search
-        auto end = std::chrono::high_resolution_clock::now();           // end time
+        auto end = chrono::high_resolution_clock::now();           // end time
 
         // calculates the total time it took in seconds
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
