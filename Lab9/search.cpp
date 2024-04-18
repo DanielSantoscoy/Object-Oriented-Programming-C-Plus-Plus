@@ -55,12 +55,6 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
     {
         // instantiate the midpoint
         int mid = (start + end) / 2;
-    
-        if (end == mid - 1)
-        {
-            return mid;
-        }
-
 
         // Use if/else statements to do the following:
         // 1) update end (search left half)
