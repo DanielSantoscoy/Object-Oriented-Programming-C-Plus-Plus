@@ -16,9 +16,9 @@ using namespace std;
  */
 int iterativeSearch(vector<int> v, int elem) {
     // use a for loop where the index, i goes from 0 to the size of v
-    for (int i = 0; i < v[i]; i++)
+    for (int i = 0; i < v.size(); i++)
     {
-        if (v[i] = elem) {
+        if (v[i] == elem) {
             return i;
         }
     } 
@@ -56,7 +56,7 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
         // instantiate the midpoint
         int mid = (start + end) / 2;
     
-        if (v[mid] == elem)
+        if (end == mid - 1)
         {
             return mid;
         }
@@ -140,7 +140,7 @@ int main()
 
         // stopwatches the time 
         clock_t start = clock();                        // start time
-        int index_if_found = iterativeSearch(v,elem);   // call search
+        int index_if_found = binarySearch(v, 0, v.size() -1, elem);            // call search
         clock_t end = clock();                          // end time
 
         // calculates the total time it took in seconds
