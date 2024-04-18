@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<fstream>
-#include<ctime>
+#include<chrono>
 using namespace std;
 
 
@@ -17,6 +17,10 @@ using namespace std;
 int iterativeSearch(vector<int> v, int elem) {
     // use a for loop where the index, i goes from 0 to the size of v
     for (int i = 0; i < v.size(); i++)
+
+    // inside the for loop, use an if statement to check whether the element at i (e.g. v[i]) equals elem
+    // inside the if statement return -1
+    
     {
         if (v[i] == elem) {
             return i;
@@ -24,8 +28,6 @@ int iterativeSearch(vector<int> v, int elem) {
     } 
     return -1;  
 }
-    // inside the for loop, use an if statement to check whether the element at i (e.g. v[i]) equals elem
-    // inside the if statement return -1
 
 
 
@@ -58,13 +60,14 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
 
         // Use if/else statements to do the following:
         // 1) update end (search left half)
-        if (v[mid] > elem)
-        {
+        if (v[mid] > elem) {
             return binarySearch(v, start, mid - 1, elem); 
         // 2) update start (search right half)   
-        } else {
+        } else if (v[mid] < elem){
             return binarySearch(v, mid + 1, end, elem); 
             // 3) return mid (found the elem)
+        } else {
+            return mid;
         }
 
     // return a recursive call to binarySearch(...)
@@ -113,18 +116,17 @@ int main()
         int elem = elem_to_find[i];
 
         // stopwatches the time 
-        clock_t start = clock();                        // start time
-        int index_if_found = iterativeSearch(v,elem);   // call search
-        clock_t end = clock();                          // end time
+        auto start = std::chrono::high_resolution_clock::now();         // start time
+        int index_if_found = iterativeSearch(v, elem);     // call search
+        auto end = std::chrono::high_resolution_clock::now();           // end time
 
         // calculates the total time it took in seconds
-        double elapsed_time_in_sec = (double(end - start)/CLOCKS_PER_SEC);
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
         // prints the index and how long it took to find it
-        cout << index_if_found << ": " << elapsed_time_in_sec << endl;      
+        std::cout << "Time taken by iterativeSearch "
+              << duration.count() << " microseconds" << std::endl; 
     }
-    
-
     // repeat the for loop above so that it records the time 
     // it takes for binarySearch to do the same operation
    for (int i = 0; i < elem_to_find.size(); i++)
@@ -133,15 +135,19 @@ int main()
         int elem = elem_to_find[i];
 
         // stopwatches the time 
-        clock_t start = clock();                        // start time
-        int index_if_found = binarySearch(v, 0, v.size() -1, elem);            // call search
-        clock_t end = clock();                          // end time
+        auto start = std::chrono::high_resolution_clock::now();         // start time
+        int index_if_found = binarySearch(v, 0, v.size() -1, elem);     // call search
+        auto end = std::chrono::high_resolution_clock::now();           // end time
 
         // calculates the total time it took in seconds
-        double elapsed_time_in_sec = (double(end - start)/CLOCKS_PER_SEC);
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
         // prints the index and how long it took to find it
-        cout << index_if_found << ": " << elapsed_time_in_sec << endl;      
+        std::cout << "Time taken by binarySearch "
+              << duration.count() << " microseconds" << std::endl;      
     }
     return 0;
 }
+
+// iterativeSearch is 688 microseconds, divide by 10 and you get 68.8
+// binarySearch is 7 microseconds, divide by 10 and you get 0.7
