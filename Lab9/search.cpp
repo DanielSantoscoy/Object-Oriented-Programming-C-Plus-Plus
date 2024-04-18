@@ -39,7 +39,7 @@ int iterativeSearch(vector<int> v, int elem) {
  * duplicates are not allowed).
  * 
  * It calculates the mid from the start and end index. It compares v[mid] (i.e. value
- * at mid) with elem and decides whether to search the left half (lowewr values)
+ * at mid) with elem and decides whether to search the left half (lower values)
  * or right half (upper values).
  * 
  * 
@@ -53,21 +53,35 @@ int iterativeSearch(vector<int> v, int elem) {
 int binarySearch(vector<int> & v, int start, int end, int elem) {
     // write an if statement that checks the terminating case 
     // inside the statement return -1
+    if (start <= end )
+    {
+        // instantiate the midpoint
+        int mid = (start + end) / 2;
+    
+        if (v[mid] == elem)
+        {
+            return mid;
+        }
 
-    // instantiate the midpoint
 
-
-    // Use if/else statements to do the following:
-    // 1) update end (search left half)
-
-    // 2) update start (search right half)
-
-    // 3) return mid (found the elem)
+        // Use if/else statements to do the following:
+        // 1) update end (search left half)
+        if (v[mid] > elem)
+        {
+            return binarySearch(v, start, mid - 1, elem); 
+        // 2) update start (search right half)   
+        } else {
+            return binarySearch(v, mid + 1, end, elem); 
+            // 3) return mid (found the elem)
+        }
 
     // return a recursive call to binarySearch(...)
-
-
+    
+    // if elem isn't found
+    return -1;
+    }
 }
+
 
 /**
  * @brief updates v to contain the values from filename (leave as is)
