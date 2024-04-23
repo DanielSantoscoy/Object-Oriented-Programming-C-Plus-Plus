@@ -117,7 +117,7 @@ int main()
 
         // stopwatches the time 
         auto start = std::chrono::high_resolution_clock::now();         // start time
-        int index_if_found = iterativeSearch(v, elem);     // call search
+        int index_if_found = iterativeSearch(v, elem);                  // call search
         auto end = std::chrono::high_resolution_clock::now();           // end time
 
         // calculates the total time it took in seconds
@@ -151,3 +151,27 @@ int main()
 
 // iterativeSearch is 688 microseconds, divide by 10 and you get 68.8
 // binarySearch is 7 microseconds, divide by 10 and you get 0.7
+
+
+
+/**
+ * @brief writes to file the time it took to search with respect to the
+ * size of the vector, n
+ * Number of Elements (n)       Time (sec)
+   XXXX                         X.XXXXX
+   XXXX                         X.XXXXX
+   @param filename (string) : filename (e.g. output_10000_numbers.csv)
+   @param times (vector<double>) : average times
+   @param n (vector<int>) : sizes of vectors
+ */
+void writeTimes(string filename, const vector<double> times, const vector<int> n) {
+    ofstream myFile(filename);
+
+    myFile << "Number of elements (n)\t Time (sec)" << endl;
+    for (int i = 0; i < times.size(); i++)
+    {
+        myFile << n[i] << "\t" << times[i] << "\n";
+    }
+    myFile.close();
+    cout << "Wrote to " << filename << endl;
+}
