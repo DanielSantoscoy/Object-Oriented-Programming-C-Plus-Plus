@@ -97,60 +97,6 @@ void vecGen(string filename, vector<int> & v) {
     file.close();
 }
 
-int main()
-{
-
-    // test elements to search for (leave as is)
-    vector<int> elem_to_find;
-    vecGen("test_elem.csv", elem_to_find);
-
-    // size (n) of all tests
-    vector<int> files_sizes;
-    vecGen("size.csv", files_sizes);
-
-    // n list of numbers
-    vector<int>v;
-
-    // results of times
-    vector<double> times;
-
-    // results of times
-    vector<double> avg;
-
-        // create a for loop to iterate through the file sizes
-        for (int i = 0; i < files_sizes.size(); i++)
-        {
-            // get the name/size of the file and assign it to string called filename
-           string filename = to_string(files_sizes[i]) + "_numbers.csv";
-        }
-
-        // call vecGen on filename and v
-        vecGen(string filename, v);
-
-
-
-        // print filename (this will be good for debugging)
-        cout << filename << endl;
-
-        // call time.clear() // this ensures that we reset times everytime we need to write a new file
-        time.clear();
-
-        // create another for loop to iterate through all the elements of elem_to_find
-        for (int i = 0; i < elem_to_find.size(); i++)
-        {
-            return elem_to_find[i];
-        }
-        
-        
-
-    return 0;
-}
-
-// iterativeSearch is 688 microseconds, divide by 10 and you get 68.8
-// binarySearch is 7 microseconds, divide by 10 and you get 0.7
-
-
-
 /**
  * @brief writes to file the time it took to search with respect to the
  * size of the vector, n
@@ -186,3 +132,75 @@ double average(vector<double> & a) {
     }
     
 }
+
+int main()
+{
+
+    // test elements to search for (leave as is)
+    vector<int> elem_to_find;
+    vecGen("test_elem.csv", elem_to_find);
+
+    // size (n) of all tests
+    vector<int> files_sizes;
+    vecGen("size.csv", files_sizes);
+
+    // n list of numbers
+    vector<int>v;
+
+    // results of times
+    vector<double> times;
+
+    // results of times
+    vector<double> avg;
+
+        // create a for loop to iterate through the file sizes
+        for (int i = 0; i < files_sizes.size(); i++) {
+        
+            // get the name/size of the file and assign it to string called filename
+           string filename = to_string(files_sizes[i]) + "_numbers.csv";        
+
+        // call vecGen on filename and v
+        vecGen(filename, v);
+
+
+
+        // print filename (this will be good for debugging)
+        cout << filename << endl;
+
+        // call time.clear() // this ensures that we reset times everytime we need to write a new file
+        time.clear();
+
+        // create another for loop to iterate through all the elements of elem_to_find
+        // the code here should be nearly identical to the code from previous lab
+
+        for (int i = 0; i < elem_to_find.size(); i++) {
+        
+            return elem_to_find[i];
+        }
+
+            // append the elapsed_time_in_sec to the vector, times (hint: push.back())
+            // This code should be within the for loop that iterates
+            // through all the elements from elem_to_find
+            elapsed_time_in_sec.push.back(times, v);
+
+
+        // call average on the vector, times, and save it as a double. This code should be
+        // outside the for loop that iterates through all the elements of elem_to_find
+        // but within the for loop that iterates through the file sizes        
+        vector<double> avg;
+        }
+
+        // outside both for loops call writeTimes with the appropriate paramaters
+        // the first parameter should be "binarySearch_times.csv"
+        // read the function brief to complete the rest of the parameters
+        writeTimes("binarySearch_times.csv", string filename, vector<double> times, vector<int> n);
+
+}
+
+// iterativeSearch is 688 microseconds, divide by 10 and you get 68.8
+// binarySearch is 7 microseconds, divide by 10 and you get 0.7
+
+
+
+
+
