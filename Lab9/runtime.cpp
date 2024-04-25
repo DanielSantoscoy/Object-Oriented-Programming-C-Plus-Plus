@@ -99,53 +99,50 @@ void vecGen(string filename, vector<int> & v) {
 
 int main()
 {
-    // populate v with 10000 sorted numbers (leave as is)
-    vector<int> v;
-    vecGen("10000_numbers.csv", v);
 
     // test elements to search for (leave as is)
     vector<int> elem_to_find;
     vecGen("test_elem.csv", elem_to_find);
 
+    // size (n) of all tests
+    vector<int> files_sizes;
+    vecGen("size.csv", files_sizes);
 
-    // reads through all 10 of the test_elem values and calls iterative search
-    // and records how long each search took (leave as is)
-    for (int i = 0; i < elem_to_find.size(); i++)
-    {
-        // gets the elem to search for
-        int elem = elem_to_find[i];
+    // n list of numbers
+    vector<int>v;
 
-        // stopwatches the time 
-        auto start = std::chrono::high_resolution_clock::now();         // start time
-        int index_if_found = iterativeSearch(v, elem);                  // call search
-        auto end = std::chrono::high_resolution_clock::now();           // end time
+    // results of times
+    vector<double> times;
 
-        // calculates the total time it took in seconds
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    // results of times
+    vector<double> avg;
 
-        // prints the index and how long it took to find it
-        std::cout << "Time taken by iterativeSearch "
-              << duration.count() << " microseconds" << std::endl; 
-    }
-    // repeat the for loop above so that it records the time 
-    // it takes for binarySearch to do the same operation
-   for (int i = 0; i < elem_to_find.size(); i++)
-    {
-        // gets the elem to search for
-        int elem = elem_to_find[i];
+        // create a for loop to iterate through the file sizes
+        for (int i = 0; i < files_sizes.size(); i++)
+        {
+            // get the name/size of the file and assign it to string called filename
+           string filename = to_string(files_sizes[i]) + "_numbers.csv";
+        }
 
-        // stopwatches the time 
-        auto start = chrono::high_resolution_clock::now();         // start time
-        int index_if_found = binarySearch(v, 0, v.size() -1, elem);     // call search
-        auto end = chrono::high_resolution_clock::now();           // end time
+        // call vecGen on filename and v
+        vecGen(string filename, v);
 
-        // calculates the total time it took in seconds
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
-        // prints the index and how long it took to find it
-        std::cout << "Time taken by binarySearch "
-              << duration.count() << " microseconds" << std::endl;      
-    }
+
+        // print filename (this will be good for debugging)
+        cout << filename << endl;
+
+        // call time.clear() // this ensures that we reset times everytime we need to write a new file
+        time.clear();
+
+        // create another for loop to iterate through all the elements of elem_to_find
+        for (int i = 0; i < elem_to_find.size(); i++)
+        {
+            return elem_to_find[i];
+        }
+        
+        
+
     return 0;
 }
 
@@ -174,4 +171,18 @@ void writeTimes(string filename, const vector<double> times, const vector<int> n
     }
     myFile.close();
     cout << "Wrote to " << filename << endl;
+}
+
+/**
+ * @brief computes the average of the elements in vector, a
+ * 
+ * @param a vector of double
+ * @return double
+ */
+double average(vector<double> & a) {
+    if (a.empty())
+    {
+        return 0.0;
+    }
+    
 }
