@@ -125,12 +125,17 @@ void writeTimes(string filename, const vector<double> times, const vector<int> n
  */
 double average(const vector<double> a) {
     double elems = a.size();
-    double average = elems / a.size();
-    return average;
+    double sum = 0.0;
     if (a.empty())
     {
         return 0.0;
     }
+    for (double num : a)
+    {
+        sum += num;
+    }
+    
+    return sum;
 }
 
 int main()
@@ -162,13 +167,11 @@ int main()
             // call vecGen on filename and v
             vecGen(filename, v);
 
-
-
             // print filename (this will be good for debugging)
             cout << filename << endl;
 
-            // call time.clear() // this ensures that we reset times everytime we need to write a new file
-            time.clear();
+            // call times.clear() // this ensures that we reset times everytime we need to write a new file
+            times.clear();
 
             // create another for loop to iterate through all the elements of elem_to_find
             // the code here should be nearly identical to the code from previous lab
