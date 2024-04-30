@@ -189,8 +189,8 @@ int main()
 
             // call average on the vector, times, and save it as a double. This code should be
             // outside the for loop that iterates through all the elements of elem_to_find
-            // but within the for loop that iterates through the file sizes        
-            avg.push_back(average(times));
+            // but within the for loop that iterates through the file sizes 
+            double averageTime = average(times);
         }
 
         // outside both for loops call writeTimes with the appropriate paramaters
