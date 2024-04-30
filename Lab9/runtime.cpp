@@ -123,11 +123,11 @@ void writeTimes(string filename, const vector<double> times, const vector<int> n
  * @param a vector of double
  * @return double
  */
-double average(vector<double> & a) {
-    if (a.empty())
-    {
-        return 0.0;
-    }
+double average(const vector<double> a) {
+    double sum = 0.0;
+    double average = sum / a.size();
+    return average;
+
     
 }
 
