@@ -209,31 +209,54 @@ int main()
         // call avg.clear() to reset average, so we can use it for binary search
         avg.clear();
 
-        // repeat the nested for loops used for iterativeSearch, but call binarySearch instead
-        binarySearch() {
-            // use a for loop where the index, i goes from 0 to the size of v
-            for (int i = 0; i < v.size(); i++) {
 
-                // inside the for loop, use an if statement to check whether the element at i (e.g. v[i]) equals elem
-                // inside the if statement return -1
-                if (v[i] == elem) {
-                return i;
+
+
+        // repeat the nested for loops used for iterativeSearch, but call binarySearch instead
+         // create a for loop to iterate through the file sizes
+        for (int i = 0; i < files_sizes.size(); i++) {
+        
+            // get the name/size of the file and assign it to string called filename
+            string filename = to_string(files_sizes[i]) + "_numbers.csv";        
+
+            // call vecGen on filename and v
+            vecGen(filename, v);
+
+            // print filename (this will be good for debugging)
+            cout << filename << endl;
+
+            // call times.clear() // this ensures that we reset times everytime we need to write a new file
+            times.clear();
+
+            // create another for loop to iterate through all the elements of elem_to_find
+            // the code here should be nearly identical to the code from previous lab
+
+
+                for (int i = 0; i < elem_to_find.size(); i++)
+                    {
+                        // gets the elem to search for
+                        int elem = elem_to_find[i];
+
+                        // stopwatches the time 
+                        auto start = std::chrono::high_resolution_clock::now();         // start time
+                        int index_if_found = binarySearch(v, elem);                     // call search
+                        auto end = std::chrono::high_resolution_clock::now();           // end time
+
+                        // calculates the total time it took in seconds
+                        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+                        // prints the index and how long it took to find it
+                        std::cout << "Time taken by binarySearch "
+                              << duration.count() << " microseconds" << std::endl; 
+                    }
+
+                // call average on the vector, times, and save it as a double. This code should be
+                // outside the for loop that iterates through all the elements of elem_to_find
+                // but within the for loop that iterates through the file sizes 
+                double averageTime = average(times);
             }
-        } 
-        return -1;  
-}
-    }
     // Outside both for loops call writeTimes with the appropriate parameters
     // the first parameter should be "binarySearch_times.csv"
     // read the function brief to complete the rest of the parameters
-    writeTimes("binarySearch_times.csv", times, files_sizes) {
-
+    writeTimes("binarySearch_times.csv", times, files_sizes);
 }
-
-// iterativeSearch is 688 microseconds, divide by 10 and you get 68.8
-// binarySearch is 7 microseconds, divide by 10 and you get 0.7
-
-
-
-
-
