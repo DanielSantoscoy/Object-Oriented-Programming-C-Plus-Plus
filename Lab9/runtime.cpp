@@ -147,7 +147,7 @@ int main()
 
     // size (n) of all tests
     vector<int> files_sizes;
-    vecGen("size.csv", files_sizes);
+    vecGen("sizes.csv", files_sizes);
 
     // n list of numbers
     vector<int>v;
@@ -176,60 +176,57 @@ int main()
             // create another for loop to iterate through all the elements of elem_to_find
             // the code here should be nearly identical to the code from previous lab
 
-            for (int i = 0; i < elem_to_find.size(); i++) {
-            
-                return elem_to_find[i];
 
+                for (int i = 0; i < elem_to_find.size(); i++)
+                    {
+                        // gets the elem to search for
+                        int elem = elem_to_find[i];
 
-                // append the elapsed_time_in_sec to the vector, times (hint: push.back())
-                // This code should be within the for loop that iterates
-                // through all the elements from elem_to_find
-                times.push_back(elapsed_time_in_sec);
+                        // stopwatches the time 
+                        auto start = std::chrono::high_resolution_clock::now();         // start time
+                        int index_if_found = iterativeSearch(v, elem);                  // call search
+                        auto end = std::chrono::high_resolution_clock::now();           // end time
+
+                        // calculates the total time it took in seconds
+                        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+                        // prints the index and how long it took to find it
+                        std::cout << "Time taken by iterativeSearch "
+                              << duration.count() << " microseconds" << std::endl; 
+                    }
+
+                // call average on the vector, times, and save it as a double. This code should be
+                // outside the for loop that iterates through all the elements of elem_to_find
+                // but within the for loop that iterates through the file sizes 
+                double averageTime = average(times);
             }
-
-            // call average on the vector, times, and save it as a double. This code should be
-            // outside the for loop that iterates through all the elements of elem_to_find
-            // but within the for loop that iterates through the file sizes 
-            double averageTime = average(times);
-        }
 
         // outside both for loops call writeTimes with the appropriate paramaters
         // the first parameter should be "binarySearch_times.csv"
         // read the function brief to complete the rest of the parameters
-        writeTimes("binarySearch_times.csv", to_string, times, n);
+        writeTimes("binarySearch_times.csv", times, files_sizes);
 
         // call avg.clear() to reset average, so we can use it for binary search
         avg.clear();
 
         // repeat the nested for loops used for iterativeSearch, but call binarySearch instead
         binarySearch() {
-            for (int i = 0; i < files_sizes.size(); i++) {
-        
-                string filename = to_string(files_sizes[i]) + "_numbers.csv";        
+            // use a for loop where the index, i goes from 0 to the size of v
+            for (int i = 0; i < v.size(); i++) {
 
-                vecGen(filename, v);
-
-                cout << filename << endl;
-
-                time.clear();
-
-
-                for (int i = 0; i < elem_to_find.size(); i++) {
-                
-                    return elem_to_find[i];
-
-
-                    elapsed_time_in_sec.push.back(times, v);
-                }
-      
-            vector<double> avg;
-        }
+                // inside the for loop, use an if statement to check whether the element at i (e.g. v[i]) equals elem
+                // inside the if statement return -1
+                if (v[i] == elem) {
+                return i;
+            }
+        } 
+        return -1;  
+}
     }
     // Outside both for loops call writeTimes with the appropriate parameters
     // the first parameter should be "binarySearch_times.csv"
     // read the function brief to complete the rest of the parameters
-    writeTimes("binarySearch_times.csv", times, n);
-
+    writeTimes("binarySearch_times.csv", times, files_sizes) {
 
 }
 
