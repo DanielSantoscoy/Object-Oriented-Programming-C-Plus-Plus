@@ -239,7 +239,7 @@ int main()
 
                         // stopwatches the time 
                         auto start = std::chrono::high_resolution_clock::now();         // start time
-                        int index_if_found = binarySearch(v, elem);                     // call search
+                        int index_if_found = binarySearch(v, 0, v.size() - 1, elem);    // call search
                         auto end = std::chrono::high_resolution_clock::now();           // end time
 
                         // calculates the total time it took in seconds
