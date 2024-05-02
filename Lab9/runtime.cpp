@@ -22,9 +22,9 @@ int iterativeSearch(vector<int> v, int elem) {
     // inside the if statement return -1
     
         if (v[i] == elem) {
-            return -1;
+            return i;
         }
-    } 
+    } return -1;
 }
 
 
