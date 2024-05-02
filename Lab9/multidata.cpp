@@ -14,6 +14,9 @@ using namespace std;
  * @param elem : integer to look for 
  * @return int 
  */
+// modify so that it can process both int and double
+// (hint: https://en.cppreference.com/w/cpp/language/templates )
+
 int iterativeSearch(vector<int> v, int elem) {
     // use a for loop where the index, i goes from 0 to the size of v
     for (int i = 0; i < v.size(); i++)
@@ -49,6 +52,8 @@ int iterativeSearch(vector<int> v, int elem) {
  * @param elem : integer to look for
  * @return int 
  */
+// modify so that it can process both int and double
+// (hint: https://en.cppreference.com/w/cpp/language/templates )
 
 int binarySearch(vector<int> & v, int start, int end, int elem) {
     // write an if statement that checks the terminating case 
@@ -87,6 +92,9 @@ int binarySearch(vector<int> & v, int start, int end, int elem) {
  * @param filename : string
  * @param v : vector
  */
+// modify so that it can process both int and double
+// (hint: https://en.cppreference.com/w/cpp/language/templates )
+
 void vecGen(string filename, vector<int> & v) {
     ifstream file(filename);
     int num;
@@ -116,9 +124,11 @@ int main()
         int elem = elem_to_find[i];
 
         // stopwatches the time 
-        auto start = std::chrono::high_resolution_clock::now();         // start time
-        int index_if_found = iterativeSearch(v, elem);     // call search
-        auto end = std::chrono::high_resolution_clock::now();           // end time
+        auto start = std::chrono::high_resolution_clock::now();  // start time
+        // call binarySearch with appropriate parameters  
+        binarySearch(v, 0, v.size(), elem);
+        int index_if_found = iterativeSearch(v, elem);           // call search
+        auto end = std::chrono::high_resolution_clock::now();    // end time
 
         // calculates the total time it took in seconds
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
