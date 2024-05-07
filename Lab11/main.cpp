@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Charmander.h" 
+#include "Pokemon.h"
 using namespace std;
 int main()
 {

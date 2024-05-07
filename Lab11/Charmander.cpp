@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
-#include <iostream>
 #include "Charmander.h"
+using namespace std;    
 /**
  * @brief Construct a new Charmander:: Charmander object
  * 
@@ -16,13 +16,14 @@ Charmander::Charmander() : Pokemon() {
 
 /**
  * @brief Construct a new Charmander:: Charmander object
+ * 
  * @param name
- * @param hp
+ * @param hp    
  * @param att
  * @param def
  * @param t 
  */
-Charmander::Charmander(string name, int hp, int att, int def, vector<string> t, vector<string> s)
+Charmander::Charmander(string name, int hp, int att, int def, vector<string> t, vector<string> s):
  Pokemon(name, hp, att, def, t) {
     type = t;
     skills = s;

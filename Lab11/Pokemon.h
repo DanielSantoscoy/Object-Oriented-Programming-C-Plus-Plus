@@ -9,7 +9,7 @@ class Pokemon {
     public:
     //---------------------- Constructors -----------------------
     Pokemon();
-    Pokemon(string name, int hp, int attack, int defense, vector<string> type);
+    Pokemon(string name, int hp, int att, int def, vector<string> type);
     //---------------------- Mutator Functions -------------------
     virtual void speak();
     virtual void printStats();
@@ -18,8 +18,8 @@ class Pokemon {
     protected:
         string name;
         int hp;
-        int attack;
-        int defense;
+        int att;
+        int def;
         vector<string> type;
 
 };
