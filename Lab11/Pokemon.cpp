@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 #include "Pokemon.h"
 
 /**
@@ -9,8 +9,8 @@
 Pokemon::Pokemon() {
     name = "unidentified";
     hp = 0;
-    att = 0;
-    def = 0;
+    attack = 0;
+    defense = 0;
     cout << "Default Constructor (Pokemon)\n";
 }
 /**
@@ -25,8 +25,8 @@ Pokemon::Pokemon() {
 Pokemon::Pokemon(string name, int hp, int att, int def, vector<string> type) {
     this->name = name;
     this->hp = hp;
-    att = att;
-    def = def;
+    attack = att;
+    defense = def;
     type = type;
     cout << "Overloaded Constructor (Pokemon)\n";
 }
@@ -41,7 +41,7 @@ void Pokemon::speak() {
 
 
 void Pokemon::printStats() {
-    printf("Name%s\t HP: %i\t DEF: %i\t ATT: %i\n", name.c_str(), hp, def, att);
+    printf("Name: %s\t HP: %i\t DEF: %i\t ATT: %i\n", name.c_str(), hp, defense, attack);
     cout << "Type: ";
     for (int i = 0; i < type.size(); i++)
     {

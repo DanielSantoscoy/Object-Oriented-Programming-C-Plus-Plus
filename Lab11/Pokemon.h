@@ -18,8 +18,8 @@ class Pokemon {
     protected:
         string name;
         int hp;
-        int att;
-        int def;
+        int attack;
+        int defense;
         vector<string> type;
 
 };
